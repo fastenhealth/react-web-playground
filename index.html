@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fasten Connect React Web Playground</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body, #root { width: 100%; height: 100%; }
+
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: radial-gradient(circle at 20% 50%, #5b47fb 0%, rgba(91, 71, 251, 0.4) 40%, rgba(255, 255, 255, 0) 70%),
+                    radial-gradient(circle at 0% 100%, #5b47fb 0%, rgba(91, 71, 251, 0.2) 50%, rgba(255, 255, 255, 0) 100%),
+                    linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #ffffff 100%);
+        background-attachment: fixed;
+        min-height: 100vh;
+      }
+
+      .app-container {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+      }
+
+      .app-wrapper {
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 24px;
+        padding: 3rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      }
+
+      .app-content {
+        text-align: center;
+        max-width: 500px;
+      }
+
+      .app-title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: #1a1a2e;
+      }
+
+      .app-description {
+        color: #4a4a6a;
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+
+      .env-warning {
+        padding: 1rem;
+        background: #fff3cd;
+        border: 1px solid #ffc107;
+        border-radius: 8px;
+        color: #856404;
+      }
+
+      .env-warning code {
+        background: rgba(255, 255, 255, 0.5);
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+
+      .connect-button {
+        padding: 14px 28px;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #fff;
+        background: #0d6efd;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.1s;
+      }
+
+      .connect-button:hover {
+        background: #0b5ed7;
+      }
+
+      .connect-button:active {
+        transform: scale(0.98);
+      }
+
+      dialog[open] {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90vw;
+        max-width: 900px;
+        height: 85vh;
+        max-height: 850px;
+        border: none;
+        border-radius: 16px;
+        padding: 0;
+        overflow: hidden;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        animation: dialog-enter 0.2s ease-out;
+      }
+
+      @keyframes dialog-enter {
+        from {
+          opacity: 0;
+          transform: translate(-50%, -48%);
+        }
+        to {
+          opacity: 1;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      dialog::backdrop {
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: flex-end;
+        padding: 12px;
+        background: #fff;
+        border-bottom: 1px solid #e9ecef;
+      }
+
+      .close-button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #495057;
+        background: transparent;
+        border: 1px solid #ced4da;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+
+      .close-button:hover {
+        background: #f1f3f4;
+      }
+
+      .modal-content {
+        flex: 1;
+        min-height: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
