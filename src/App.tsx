@@ -16,8 +16,8 @@ export default function App() {
   const stitchRef = useRef<FastenStitchElementHandle>(null);
   const [connectMode, setConnectMode] = useState<ConnectMode>(ConnectMode.Popup);
 
-  const handleEvent = useCallback((event: MessageEvent) => {
-    console.debug('[FastenStitchElement onEvent]', event.data);
+  const handleEventBus = useCallback((event: MessageEvent) => {
+    console.debug('[FastenStitchElement onEventBus]', event.data);
   }, []);
 
   return (
@@ -69,7 +69,7 @@ export default function App() {
                 <FastenStitchElement
                   publicId={CUSTOMER_PUBLIC_ID}
                   connectMode={connectMode}
-                  onEvent={handleEvent}
+                  onEventBus={handleEventBus}
                   environment="development"
                 />
               </section>
@@ -85,7 +85,7 @@ export default function App() {
                   publicId={CUSTOMER_PUBLIC_ID}
                   connectMode={connectMode}
                   buttonLabel="Connect Your Health Records"
-                  onEvent={handleEvent}
+                  onEventBus={handleEventBus}
                   environment="development"
                 />
               </section>
@@ -100,7 +100,7 @@ export default function App() {
                 <FastenStitchElement
                   publicId={CUSTOMER_PUBLIC_ID}
                   connectMode={connectMode}
-                  onEvent={handleEvent}
+                  onEventBus={handleEventBus}
                   environment="development"
                 >
                   <span className="custom-trigger">
@@ -135,7 +135,7 @@ export default function App() {
                   ref={stitchRef}
                   publicId={CUSTOMER_PUBLIC_ID}
                   connectMode={connectMode}
-                  onEvent={handleEvent}
+                  onEventBus={handleEventBus}
                   environment="development"
                   buttonStyle={{ display: 'none' }}
                 />

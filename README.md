@@ -18,23 +18,15 @@ Before setting up the project, ensure you have the following installed:
    cd react-web-playground
    ```
 
-2. **Build the SDK** (the playground links to the local SDK via `file:../fasten-stitch-element-react`):
-   ```bash
-   cd ../fasten-stitch-element-react
-   npm install
-   npm run build
-   cd ../react-web-playground
-   ```
-
-3. **Install dependencies**:
+2. **Install dependencies**:
    ```bash
    npm install
    ```
 
-4. **Configure the SDK**:
+3. **Configure the SDK**:
      - Copy `.env.example` to `.env` and set `VITE_CUSTOMER_PUBLIC_ID` with your actual public ID provided by Fasten Connect.
 
-5. **Run the application**:
+4. **Run the application**:
    ```bash
    npm run dev
    ```
@@ -42,7 +34,6 @@ Before setting up the project, ensure you have the following installed:
 ## Notes
 
 - This SDK uses an `<iframe>` to embed Fasten Connect functionality. Auth popups open as native browser windows.
-- Debugging is enabled by default in this playground. Disable it in production by removing the `debugModeEnabled` prop.
 - The `<iframe>` is rendered inside a modal dialog. Click the "Connect Your Health Records" button to open the modal.
 
 ## Known Issues

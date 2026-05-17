@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@fastenhealth/fasten-stitch-element-react": "file:../fasten-stitch-element-react",
+    "@fastenhealth/fasten-stitch-element-react": "^1.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
