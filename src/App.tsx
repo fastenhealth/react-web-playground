@@ -70,7 +70,6 @@ export default function App() {
                   publicId={CUSTOMER_PUBLIC_ID}
                   connectMode={connectMode}
                   onEventBus={handleEventBus}
-                  environment="development"
                 />
               </section>
 
@@ -86,7 +85,6 @@ export default function App() {
                   connectMode={connectMode}
                   buttonLabel="Connect Your Health Records"
                   onEventBus={handleEventBus}
-                  environment="development"
                 />
               </section>
 
@@ -101,7 +99,6 @@ export default function App() {
                   publicId={CUSTOMER_PUBLIC_ID}
                   connectMode={connectMode}
                   onEventBus={handleEventBus}
-                  environment="development"
                 >
                   <span className="custom-trigger">
                     Link my records &rarr;
@@ -136,7 +133,6 @@ export default function App() {
                   publicId={CUSTOMER_PUBLIC_ID}
                   connectMode={connectMode}
                   onEventBus={handleEventBus}
-                  environment="development"
                   buttonStyle={{ display: 'none' }}
                 />
               </section>
