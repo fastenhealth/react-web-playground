@@ -31,6 +31,24 @@ Before setting up the project, ensure you have the following installed:
    npm run dev
    ```
 
+## Co-branding
+
+Use the playground's **Co-branding** controls to set the theme, accent color,
+logo URL, and company name for every demo, including the programmatic trigger.
+The theme defaults to `light`; the other fields are optional. Values are passed
+to the React SDK using these props:
+
+| React prop | Embed query parameter | Accepted value |
+| --- | --- | --- |
+| `brandingTheme` | `theme` | `light` or `dark` |
+| `brandingAccentColor` | `accent-color` | `#RGB` or `#RRGGBB`; invalid colors are ignored by the embed |
+| `brandingLogoUrl` | `logo-url` | Logo URL for the embed header |
+| `brandingCompanyName` | `company-name` | Header company name and logo alt text |
+
+The playground trims optional values and omits empty ones. Pass raw values to
+the React SDK; it encodes query parameters, including `#` in colors and reserved
+characters in logo URLs. Branding works with each connect mode.
+
 ## Notes
 
 - This SDK uses an `<iframe>` to embed Fasten Connect functionality. Auth popups open as native browser windows.

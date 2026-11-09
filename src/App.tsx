@@ -15,6 +15,17 @@ export default function App() {
   const CUSTOMER_PUBLIC_ID = import.meta.env.VITE_CUSTOMER_PUBLIC_ID ?? '';
   const stitchRef = useRef<FastenStitchElementHandle>(null);
   const [connectMode, setConnectMode] = useState<ConnectMode>(ConnectMode.Popup);
+  const [brandingTheme, setBrandingTheme] = useState('light');
+  const [brandingAccentColor, setBrandingAccentColor] = useState('');
+  const [brandingLogoUrl, setBrandingLogoUrl] = useState('');
+  const [brandingCompanyName, setBrandingCompanyName] = useState('');
+
+  const brandingProps = {
+    brandingTheme,
+    brandingAccentColor: brandingAccentColor.trim() || undefined,
+    brandingLogoUrl: brandingLogoUrl.trim() || undefined,
+    brandingCompanyName: brandingCompanyName.trim() || undefined,
+  };
 
   const handleEventBus = useCallback((event: MessageEvent) => {
     console.debug('[FastenStitchElement onEventBus]', event.data);
@@ -60,6 +71,61 @@ export default function App() {
                 </p>
               </section>
 
+              <section className="demo-section">
+                <h2 className="demo-section-title">Co-branding</h2>
+                <p className="demo-section-desc">
+                  Customize the Fasten Connect header and appearance for all
+                  examples below. Leave optional fields empty to use the defaults.
+                </p>
+                <div className="branding-fields">
+                  <label className="branding-field" htmlFor="branding-theme">
+                    Theme
+                    <select
+                      id="branding-theme"
+                      value={brandingTheme}
+                      onChange={(event) => setBrandingTheme(event.target.value)}
+                    >
+                      <option value="light">Light</option>
+                      <option value="dark">Dark</option>
+                    </select>
+                  </label>
+                  <label className="branding-field" htmlFor="branding-accent-color">
+                    Accent color (optional)
+                    <input
+                      id="branding-accent-color"
+                      type="text"
+                      value={brandingAccentColor}
+                      onChange={(event) => setBrandingAccentColor(event.target.value)}
+                      placeholder="#1A73E8"
+                      aria-describedby="branding-accent-hint"
+                    />
+                  </label>
+                  <p id="branding-accent-hint" className="branding-hint">
+                    Use #RGB or #RRGGBB. Invalid colors are ignored by the embed.
+                  </p>
+                  <label className="branding-field" htmlFor="branding-logo-url">
+                    Logo URL (optional)
+                    <input
+                      id="branding-logo-url"
+                      type="url"
+                      value={brandingLogoUrl}
+                      onChange={(event) => setBrandingLogoUrl(event.target.value)}
+                      placeholder="https://example.com/logo.png"
+                    />
+                  </label>
+                  <label className="branding-field" htmlFor="branding-company-name">
+                    Company name (optional)
+                    <input
+                      id="branding-company-name"
+                      type="text"
+                      value={brandingCompanyName}
+                      onChange={(event) => setBrandingCompanyName(event.target.value)}
+                      placeholder="Example Health"
+                    />
+                  </label>
+                </div>
+              </section>
+
               {/* ── Default button ─────────────────────────────── */}
               <section className="demo-section">
                 <h2 className="demo-section-title">Default Button</h2>
@@ -67,6 +133,7 @@ export default function App() {
                   Uses the SDK's built-in styled button and dialog.
                 </p>
                 <FastenStitchElement
+                  {...brandingProps}
                   publicId={CUSTOMER_PUBLIC_ID}
                   connectMode={connectMode}
                   onEventBus={handleEventBus}
@@ -81,6 +148,7 @@ export default function App() {
                   <code>buttonLabel</code> prop.
                 </p>
                 <FastenStitchElement
+                  {...brandingProps}
                   publicId={CUSTOMER_PUBLIC_ID}
                   connectMode={connectMode}
                   buttonLabel="Connect Your Health Records"
@@ -96,6 +164,7 @@ export default function App() {
                   default button.
                 </p>
                 <FastenStitchElement
+                  {...brandingProps}
                   publicId={CUSTOMER_PUBLIC_ID}
                   connectMode={connectMode}
                   onEventBus={handleEventBus}
@@ -129,6 +198,7 @@ export default function App() {
                 </div>
                 {/* Hidden trigger — controlled entirely via ref */}
                 <FastenStitchElement
+                  {...brandingProps}
                   ref={stitchRef}
                   publicId={CUSTOMER_PUBLIC_ID}
                   connectMode={connectMode}
